@@ -1,5 +1,13 @@
 #include "DiamondTrap.hpp"
-#include <iostream>
+
+DiamondTrap::DiamondTrap(void):
+ClapTrap("unnamed_clap_name"),
+FragTrap(),
+ScavTrap(),
+_name("unnamed")
+{
+    std::cout << "Default Constructor called: " << _name << " DiamondTrap has been created."<< std::endl;
+}
 
 DiamondTrap::DiamondTrap(const std::string &name):
 ClapTrap(name + "_clap_name"),
@@ -9,10 +17,14 @@ _name(name)
     this->_hitPoints = 100;
     this->_energyPoints = 50;
     this->_attackDamage = 30;
+    std::cout << _name << " DiamondTrap has been created."<<std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other):
-ClapTrap(other._name + "_clap_name"), FragTrap(other), ScavTrap(other),  _name(other._name)
+ClapTrap(other._name + "_clap_name"),
+FragTrap(other),
+ScavTrap(other),
+_name(other._name)
 {
     std::cout << this->_name << " DiamondTrap copy has been created."<<std::endl;   
 }
